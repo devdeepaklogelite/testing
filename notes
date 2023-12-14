@@ -4,3 +4,20 @@
 $("#agree").is(':checked') == 0
 
 ======================================================================================================================================================================================
+
+# timeout use session after 10 min
+----------------------------------
+
+// Function to initialize the session expiration timer
+function initializeSessionTimeout() {
+  // Set the timeout duration to 10 minutes (600,000 milliseconds)
+  const timeoutDuration = 600000;
+  setTimeout(function() {
+    // Clear session storage when the timeout is reached
+    sessionStorage.clear();
+    localStorage.removeItem("accessToken");
+  }, timeoutDuration);
+}
+initializeSessionTimeout();
+
+======================================================================================================================================================================================
