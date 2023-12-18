@@ -20,4 +20,30 @@ function initializeSessionTimeout() {
 }
 initializeSessionTimeout();
 
+
+=======================================
+
+ let userActive = false;
+  // const browserUserData = (campData) ? campData : [];
+
+  // const [cdata, setCdata] = useState(browserUserData);
+
+// Function to initialize the session expiration timer
+function initializeSessionTimeout() {
+  // Set the timeout duration to 10 minutes (600,000 milliseconds)
+  if(userActive === false){
+    const timeoutDuration = 600000;
+    setTimeout(function() {
+      // Clear session storage when the timeout is reached
+      localStorage.removeItem("accessToken");
+    }, timeoutDuration);
+  }
+  userActive = false;
+}
+
+const resetTimer = () => {
+  userActive = true;
+};
+document.addEventListener('mousemove', resetTimer);
+initializeSessionTimeout();
 ======================================================================================================================================================================================
