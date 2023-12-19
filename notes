@@ -47,3 +47,21 @@ const resetTimer = () => {
 document.addEventListener('mousemove', resetTimer);
 initializeSessionTimeout();
 ======================================================================================================================================================================================
+
+// Get the current timestamp
+$currentTimestamp = time();
+
+// Calculate the timestamp for the end of the current day (i.e., the start of the next day)
+$endOfCurrentDayTimestamp = strtotime('tomorrow', strtotime('midnight'));
+
+// Calculate the duration until the end of the day
+$durationUntilEndOfDay = $endOfCurrentDayTimestamp - $currentTimestamp;
+
+// Set the cookie with the calculated duration until the end of the day
+setcookie('your_cookie_name', 'cookie_value', time() + $durationUntilEndOfDay, '/');
+
+// Display a message or perform other actions to show that the cookie has been set
+echo 'Cookie set to expire at the end of the day.';
+
+
+========================================================================================================================================================================================
